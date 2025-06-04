@@ -1,0 +1,4 @@
+Plugin-Id: new-http-plugin
+Plugin-Version: 1.0.0
+Plugin-Description: HTTP Plugin for demonstration
+Plugin-Class: cacib.plugin.http.BaseControllerPlugin

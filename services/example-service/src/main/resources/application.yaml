@@ -1,0 +1,5 @@
+server:
+  port: 8080
+pf4j:
+  mode: development
+  plugins-dir: ../plugins

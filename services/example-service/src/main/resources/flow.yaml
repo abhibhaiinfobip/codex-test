@@ -1,0 +1,7 @@
+flows:
+  - flowId: helloWorldFlow
+    steps:
+      - stepId: helloWorldFlow      # ext.getId() should be exactly "HelloWorldStep"
+        config:
+          key1: value1
+

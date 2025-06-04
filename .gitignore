@@ -1,0 +1,24 @@
+/.idea/workspace.xml
+# Ignore Maven target directory
+/target/
+
+# Ignore all module target directories
+library/*/target/
+plugins/*/target/
+services/*/target/
+
+# Ignore all class files
+*.class
+
+# Ignore IntelliJ IDEA project files
+/.idea/
+/*.iml
+
+# Ignore logs
+*.lst
+*.log
+*.jar
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
