@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cacib.oilasia</groupId>
+        <artifactId>oil-asia</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>http-plugin</artifactId>
+
+    <properties>
+        <!-- define your PF4J versions -->
+        <pf4j.version>3.13.0</pf4j.version>
+        <spring.pf4j.version>0.10.0</spring.pf4j.version>
+
+        <!-- your existing plugin metadata -->
+        <plugin.id>http</plugin.id>
+        <plugin.class>cacib.plugin.http.HelloWorldPlugin</plugin.class>
+        <plugin.version>1.0.0</plugin.version>
+        <plugin.provider>CA-CIB</plugin.provider>
+    </properties>
+
+    <dependencies>
+        <!-- PF4J core (provided by the host) -->
+        <dependency>
+            <groupId>org.pf4j</groupId>
+            <artifactId>pf4j</artifactId>
+            <version>${pf4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- PF4J-Spring integration -->
+        <dependency>
+            <groupId>org.pf4j</groupId>
+            <artifactId>pf4j-spring</artifactId>
+            <version>${spring.pf4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.2.7</version>
+        </dependency>
+
+        <!-- for building your HTTP routes -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <version>3.5.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cacib.oilasia</groupId>
+            <artifactId>task-manager</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- optional if you use HttpURLConnection instead of WebFlux -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- your shared interfaces -->
+        <dependency>
+            <groupId>cacib.oilasia</groupId>
+            <artifactId>shared-interfaces</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <annotationProcessors>
+                        <annotationProcessor>org.pf4j.processor.ExtensionAnnotationProcessor</annotationProcessor>
+                    </annotationProcessors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
